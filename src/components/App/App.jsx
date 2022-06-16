@@ -1,8 +1,31 @@
 import React from 'react';
+import { useEffect } from 'react';
+import {useDispatch} from 'react-redux';
 import axios from 'axios';
 import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    fetchPizzas();
+  }, []);
+
+
+  const fetchPizzas = () =>{
+    axios({
+      method:  'GET', 
+      url: '/api/pizza'
+    }).then(response=>{
+      dispatch({
+        type: 'SET_PIZZAS', 
+        payload: response.data
+      });
+    }).catch(err=>{
+      console.log('error in GET', err)
+    });
+  }
+
 
   return (
     <div className='App'>
