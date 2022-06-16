@@ -6,22 +6,9 @@ import logger from 'redux-logger';
 import './index.css';
 import App from './components/App/App';
 
-// defaultPizzas = [
-//     {
-//         id: 1,
-//         name: 'Supreme Pizza',
-//         description: 'It has everything!',
-//         price: 12.99,
-//         img_path: 
-//     },
-//     {
-
-//     }
-// ]
-
 const pizzaList = (state = [], action) => {
     switch(action.type){
-        case 'SET_PIZZA_LIST':
+        case 'SET_PIZZAS':
             return action.payload;
     }
     return state;
