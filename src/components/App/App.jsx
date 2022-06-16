@@ -48,6 +48,9 @@ function App() {
          <Route path='/api/order' exact>
             <CustomerInfo/>
         </Route>
+        <Route path='/api/checkout'>
+          <Checkout />
+        </Route>
       </main>
     </div>
     </Router>
