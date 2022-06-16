@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import PizzaList from '../SelectPizza/SelectPizza';
+import CustomerInfo from '../CustomerInfo/CustomerInfo.jsx'
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,12 @@ function App() {
         </Route>
         <Route path='/api/pizza'>
           <PizzaList/>
+        </Route>
+        <Link to='/api/order'>
+              <button>Next</button>
+         </Link>
+         <Route path='/api/order' exact>
+            <CustomerInfo/>
         </Route>
       </main>
     </div>

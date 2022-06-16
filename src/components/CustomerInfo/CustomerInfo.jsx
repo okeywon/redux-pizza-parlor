@@ -1,5 +1,5 @@
 function CustomerInfo(){
-    console.log('inside')
+    console.log('Inside Customer Info')
     return (
         <>
         <h2>Step 2: Customer Information</h2>
