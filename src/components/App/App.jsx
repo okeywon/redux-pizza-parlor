@@ -5,8 +5,8 @@ import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import PizzaList from '../SelectPizza/SelectPizza';
-import CustomerInfo from '../CustomerInfo/CustomerInfo.jsx'
-
+import CustomerInfo from '../CustomerInfo/CustomerInfo.jsx';
+import Home from '../Home/Home'
 function App() {
   const dispatch = useDispatch();
 
@@ -29,30 +29,30 @@ function App() {
   }
 
   return (
+      <div className='App'>
     <Router>
-    <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
-      <main>
-        
-          <img src='images/pizza_photo.png' />
-          <p>Pizza is great.</p>
+        <div>
         <Link to="/api/pizza">Order Pizzas</Link>
+        <Link to='/api/order'><button>Next</button></Link>
+        <Link to="/">Home</Link>
+      </div>
         <Route path='/' exact>
+          <Home />
         </Route>
-        <Route path='/api/pizza'>
-          <PizzaList/>
+        <Route path= '/Header'>   
         </Route>
-        <Link to='/api/order'>
-              <button>Next</button>
-         </Link>
-         <Route path='/api/order' exact>
+        <Route path='/api/pizza'> 
+        <PizzaList/>
+        </Route>
+         <Route path='/api/order'exact>
             <CustomerInfo/>
+
         </Route>
-      </main>
-    </div>
     </Router>
+    </div>
   );
 }
 
