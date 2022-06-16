@@ -41,15 +41,11 @@ function App() {
           <img src='images/pizza_photo.png' />
           <p>Pizza is great.</p>
         <Link to="/api/pizza">Order Pizzas</Link>
-        
         <Route path='/' exact>
         </Route>
         <Route path='/api/pizza'>
           <PizzaList/>
         </Route>
-
-
-
       </main>
     </div>
     </Router>
