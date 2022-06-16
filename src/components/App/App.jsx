@@ -51,10 +51,10 @@ function App() {
             <CustomerInfo/>
         </Route>
         <Route path='/api/checkout'>
-          <Checkout />
+          {/* <Checkout /> */}
         </Route>
-      </main>
-    </div>
+   
+
     </Router>
     </div>
   );
