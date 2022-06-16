@@ -6,6 +6,10 @@ import logger from 'redux-logger';
 import './index.css';
 import App from './components/App/App';
 
+const cart = (state, action) => {
+    
+}
+
 const pizzaList = (state = [], action) => {
     switch(action.type){
         case 'SET_PIZZAS':

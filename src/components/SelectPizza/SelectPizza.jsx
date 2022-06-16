@@ -12,17 +12,19 @@ function PizzaList(){
                 <p>Total:</p>
             </span>
             <h3>Step 1: Select Your Pizza</h3>
-            <span>
-                {pizzaList.map((pizza) =>
-                    <span key={pizza.id}>
-                        <img src={pizza.image_path} width="300" height="200"/>
-                        <h3>{pizza.name}</h3>
-                        <p>{pizza.description}</p>
-                        <p>{pizza.price}</p>
-                        <button>Add</button>
-                    </span>
-                )}
-            </span>
+            <div className='mainDiv'>
+                <span>
+                    {pizzaList.map((pizza) =>
+                        <span key={pizza.id} className="eachPizza">
+                            <img src={pizza.image_path} width="300" height="230"/>
+                            <h3>{pizza.name}</h3>
+                            <p>{pizza.description}</p>
+                            <p>{pizza.price}</p>
+                            <button type="submit">Add</button>
+                        </span>
+                    )}
+                </span>
+            </div>
             <Link to='/api/order'>
               <button>Next</button>
             </Link>

@@ -36,7 +36,7 @@ function App() {
       </header>
       <main>
         
-          <img src='images/pizza_photo.png' />
+          <img src='images/pizza_photo.png' width="400" height="300"/>
           <p>Pizza is great.</p>
         <Link to="/api/pizza">Order Pizzas</Link>
         <Route path='/' exact>
