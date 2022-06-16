@@ -47,10 +47,14 @@ function App() {
         <Route path='/api/pizza'> 
         <PizzaList/>
         </Route>
-         <Route path='/api/order'exact>
+         <Route path='/api/order' exact>
             <CustomerInfo/>
-
         </Route>
+        <Route path='/api/checkout'>
+          <Checkout />
+        </Route>
+      </main>
+    </div>
     </Router>
     </div>
   );
