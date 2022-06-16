@@ -21,7 +21,7 @@ import App from './components/App/App';
 
 const pizzaList = (state = [], action) => {
     switch(action.type){
-        case 'SET_PIZZA_LIST':
+        case 'SET_PIZZAS':
             return action.payload;
     }
     return state;
