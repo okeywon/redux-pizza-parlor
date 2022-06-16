@@ -6,6 +6,7 @@ import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import PizzaList from '../SelectPizza/SelectPizza';
 import CustomerInfo from '../CustomerInfo/CustomerInfo.jsx'
+import Cart from '../Cart/Cart';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,11 +43,14 @@ function App() {
         <Route path='/' exact>
         </Route>
         <Route path='/api/pizza'>
-          <PizzaList/>
+          <PizzaList
+            Cart={Cart}
+          />
         </Route>
-
          <Route path='/api/order' exact>
-            <CustomerInfo/>
+            <CustomerInfo
+              Cart={Cart}
+            />
         </Route>
       </main>
     </div>

@@ -1,7 +1,6 @@
 import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
 function PizzaList(){
     const pizzaList = useSelector(store => store.pizzaList);
     console.log(pizzaList);
