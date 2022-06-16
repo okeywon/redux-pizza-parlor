@@ -6,14 +6,12 @@ import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import PizzaList from '../SelectPizza/SelectPizza';
 
-
 function App() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
     fetchPizzas();
   }, []);
-
 
   const fetchPizzas = () =>{
     axios({
@@ -28,7 +26,6 @@ function App() {
       console.log('error in GET', err)
     });
   }
-
 
   return (
     <Router>
