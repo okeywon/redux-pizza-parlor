@@ -1,5 +1,16 @@
+import {useSelector} from 'react-redux';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
 function CustomerInfo(){
     console.log('Inside Customer Info')
+
+    const customerInfo = useSelector(store => store.customerInfo)
+    const [costomerName, setCostomerName] = useState('');
+    const [costomerAddress, setCostomerAddress] = useState('');
+    const [costomerCity, setCostomerCity] = useState('');
+    const [costomerZip, setCostomerZip] = useState('');
+
     return (
         <>
         <h2>Step 2: Customer Information</h2>
@@ -18,7 +29,9 @@ function CustomerInfo(){
             </li>
         </ul>
         <div>
+            <Link to='/api/checkout'>
             <button>Next</button>
+            </Link>
         </div>
         </>
     )
