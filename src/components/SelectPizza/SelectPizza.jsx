@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function PizzaList(){
@@ -7,25 +7,25 @@ function PizzaList(){
     console.log(pizzaList);
     return (
         <>
-        <Router>
-            <span>
+            <span className='header'>
                 <h1>Prime Pizza</h1>
                 <p>Total:</p>
             </span>
             <h3>Step 1: Select Your Pizza</h3>
-            <div>
+            <span>
                 {pizzaList.map((pizza) =>
                     <span key={pizza.id}>
-                        <img src={pizza.image_path}/>
+                        <img src={pizza.image_path} width="300" height="200"/>
                         <h3>{pizza.name}</h3>
                         <p>{pizza.description}</p>
                         <p>{pizza.price}</p>
                         <button>Add</button>
                     </span>
                 )}
-            </div>
-            
-        </Router>
+            </span>
+            <Link to='/api/order'>
+              <button>Next</button>
+            </Link>
         </>
     )
 }

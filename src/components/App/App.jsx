@@ -44,9 +44,7 @@ function App() {
         <Route path='/api/pizza'>
           <PizzaList/>
         </Route>
-        <Link to='/api/order'>
-              <button>Next</button>
-         </Link>
+
          <Route path='/api/order' exact>
             <CustomerInfo/>
         </Route>
