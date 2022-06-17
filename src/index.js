@@ -6,11 +6,10 @@ import logger from 'redux-logger';
 import './index.css';
 import App from './components/App/App';
 
-
 const cart = (state = [], action) => {
     switch(action.type){
-        case 'SET_CART':
-            return action.payload;
+        case 'ADD_PIZZA_TO_CART':
+            return [...state, action.payload]
     }
     return state;
 }
@@ -26,7 +25,7 @@ const defaultCustomerInfo = [{
 const customerInfo = (state = defaultCustomerInfo, action) => {
     switch(action.type){
         case 'SET_COSTOMER_ORDER':
-            return action.payload
+            return [...state, action.payload]
     }
     return state;
 }
@@ -61,11 +60,13 @@ const checkoutRed= (state = [], action) =>{
 
 const pizzaStore = createStore(
     combineReducers({
+
         pizzaList, 
         customerInfo,
         cart ,
         checkoutRed
         
+
 
 
     }),
