@@ -2,10 +2,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
-
+import {useHistory} from 'react-router-dom'
 function CustomerInfo(){
     console.log('Inside Customer Info')
-
+    const history = useHistory();
     const customerInfo = useSelector(store => store.customerInfo)
     const dispatch = useDispatch();
     const [costomerName, setCostomerName] = useState('');
@@ -15,7 +15,9 @@ function CustomerInfo(){
 
     const handelEvent = (evt) => {
         evt.preventDefault();
-        console.log('Inside customer to data base');
+        console.log('Inside customer to data base')
+    }
+     const submitInfo = ()=>{
         dispatch({
             type: 'SET_COSTOMER_ORDER',
             payload:{
@@ -25,7 +27,10 @@ function CustomerInfo(){
                 costomerZip
             }
         })
-       return state
+      }  
+    const sendHisttory = () => {
+        submitInfo()
+        history.push('/api/checkout');
     }
 
     return (
@@ -60,12 +65,10 @@ function CustomerInfo(){
                 placeholder="Zip"/>
             </li>
         </ul>
-      
+
         </form>
         <div>
-            {/* <Link to='/api/checkout'> */}
-            <button type='submit'>Next</button>
-            {/* </Link> */}
+            <button onClick={sendHisttory}>Next</button>
         </div>
         </>
     )
