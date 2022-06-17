@@ -24,7 +24,7 @@ const defaultCustomerInfo = [{
 const customerInfo = (state = defaultCustomerInfo, action) => {
     switch(action.type){
         case 'SET_COSTOMER_ORDER':
-            return action.payload
+            return [...state, action.payload]
     }
     return state;
 }
