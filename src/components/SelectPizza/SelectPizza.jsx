@@ -1,15 +1,31 @@
-import {useSelector} from 'react-redux';
-import { Link } from 'react-router-dom';
-
+import {useSelector, useDispatch} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 function PizzaList(){
     const pizzaList = useSelector(store => store.pizzaList);
+    const dispatch = useDispatch();
+    let total = 0;
+
     console.log(pizzaList);
+
+    const onAddPizza = (pizza) => {
+        total += Number(pizza.price);
+        console.log('Added a pizza', pizza.name, pizza.price);
+        console.log(total);
+        dispatch({
+            type: 'SET_CART',
+            payload: {
+                name: pizza.name,
+                total: pizza.price,
+            }
+        });
+    }
+
     return (
         <>
             <span className='header'>
                 <h1>Prime Pizza</h1>
-                <p>Total:</p>
+                <p>Total:{total}</p>
             </span>
             <h3>Step 1: Select Your Pizza</h3>
             <div className='mainDiv'>
@@ -20,7 +36,7 @@ function PizzaList(){
                             <h3>{pizza.name}</h3>
                             <p>{pizza.description}</p>
                             <p>{pizza.price}</p>
-                            <button type="submit">Add</button>
+                            <button type="submit" onClick={onAddPizza(pizza)}>Add</button>
                         </span>
                     )}
                 </span>

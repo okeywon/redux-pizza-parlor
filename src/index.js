@@ -7,8 +7,17 @@ import './index.css';
 import App from './components/App/App';
 
 
-const cart = (state, action) => {
+const cart = (state = [], action) => {
+    switch(action.type){
+        case 'SET_CART':
+            return action.payload;
+    }
+    return state;
+
+
+
     
+
 }
 
 const defaultCustomerInfo = [{
@@ -37,7 +46,11 @@ const pizzaList = (state = [], action) => {
 const pizzaStore = createStore(
     combineReducers({
         pizzaList,
+
+        
+
         customerInfo
+
     }),
     applyMiddleware(logger)
 );
