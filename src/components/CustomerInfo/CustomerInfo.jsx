@@ -32,7 +32,10 @@ function CustomerInfo(){
         submitInfo()
         history.push('/api/checkout');
     }
+const setDeliveryOption = () => {
+    console.log('delivery option is pickup')
 
+}
     return (
         <>
         <h2>Step 2: Customer Information</h2>
@@ -43,14 +46,14 @@ function CustomerInfo(){
                 onChange={(event) => {setCostomerName(event.target.value)}}
                 type={'text'} 
                 placeholder="Name"/>
-                <span><input type={"radio"}/>Pickup</span>
+                <span><input name='deliveryMethod' type={"radio"}  onClick={() => setDeliveryOption()}/>Pickup</span>
             </li>
             <li>
                 <input 
                 onChange={(event) => {setCostomerAddress(event.target.value)}}
                 type={'text'} 
                 placeholder="Street Address"/>
-                <span><input type={"radio"}/>Delivery</span>
+                <span><input name='deliveryMethod' type={"radio"}/>Delivery</span>
             </li>
             <li>
                 <input 
