@@ -20,7 +20,13 @@ const customerInfo = (state = defaultCustomerInfo, action) => {
     }
     return state;
 }
-
+const finalReducer = (state = {}, action) =>{
+    switch(action.type){
+        case 'ADD_FINAL_INFO':
+            return action.payload
+    }
+    return state;
+}
 
 const pizzaList = (state = [], action) => {
     switch(action.type){
@@ -33,7 +39,8 @@ const pizzaList = (state = [], action) => {
 const pizzaStore = createStore(
     combineReducers({
         pizzaList,
-        customerInfo
+        customerInfo, 
+        finalReducer
     }),
     applyMiddleware(logger)
 );
