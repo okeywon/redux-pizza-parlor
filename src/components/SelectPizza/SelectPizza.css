@@ -3,7 +3,14 @@
     color: white;
 }
 
-.img {
-    height: 100px;
-    width: 100px;
+.mainDiv {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+}
+
+.eachPizza {
+    width: 30%;
+    height:fit-content;
+    
 }

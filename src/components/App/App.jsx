@@ -34,6 +34,10 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
+      <main>
+        
+          <img src='images/pizza_photo.png' width="400" height="300"/>
+          <p>Pizza is great.</p>
         <div>
         <Link to="/api/pizza">Order Pizzas</Link>
         <Link to='/api/order'><button>Next</button></Link>

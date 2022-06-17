@@ -6,6 +6,11 @@ import logger from 'redux-logger';
 import './index.css';
 import App from './components/App/App';
 
+
+const cart = (state, action) => {
+    
+}
+
 const defaultCustomerInfo = [{
     customer_name: "Donatello",
     street_address: "20 W 34th St",
@@ -20,7 +25,6 @@ const customerInfo = (state = defaultCustomerInfo, action) => {
     }
     return state;
 }
-
 
 const pizzaList = (state = [], action) => {
     switch(action.type){
