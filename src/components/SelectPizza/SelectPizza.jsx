@@ -2,21 +2,31 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 function PizzaList(){
-    const pizzaList = useSelector(store => store.pizzaList);
     const dispatch = useDispatch();
-    let total = 0;
-
+    const pizzaList = useSelector(store => store.pizzaList);
     console.log(pizzaList);
+    // use useSelector to make the cart reducer available to us
+    const cart = useSelector(store => store.cart);
+    // make a function, maybe name it getTotalPrice
+    // this function will loop through the cart reducer, and
+    // return the total price
+    const getTotalPrice = (cart) => {
+        console.log('cart is', cart);
+        let total = 0;
+        for(let item of cart){
+            total+=item.price
+        }
+        return total;
+    }
 
     const onAddPizza = (pizza) => {
-        total += Number(pizza.price);
         console.log('Added a pizza', pizza.name, pizza.price);
-        console.log(total);
+
         dispatch({
-            type: 'SET_CART',
+            type: 'ADD_PIZZA_TO_CART',
             payload: {
                 name: pizza.name,
-                total: pizza.price,
+                price: Number(pizza.price),
             }
         });
     }
@@ -25,7 +35,7 @@ function PizzaList(){
         <>
             <span className='header'>
                 <h1>Prime Pizza</h1>
-                <p>Total:{total}</p>
+                <p>Total: {getTotalPrice(cart)}</p>
             </span>
             <h3>Step 1: Select Your Pizza</h3>
             <div className='mainDiv'>
@@ -36,7 +46,7 @@ function PizzaList(){
                             <h3>{pizza.name}</h3>
                             <p>{pizza.description}</p>
                             <p>{pizza.price}</p>
-                            <button type="submit" onClick={onAddPizza(pizza)}>Add</button>
+                            <button type="submit" onClick={() => {onAddPizza(pizza)}}>Add</button>
                         </span>
                     )}
                 </span>

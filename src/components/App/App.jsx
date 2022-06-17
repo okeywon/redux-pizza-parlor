@@ -42,7 +42,7 @@ function App() {
         <Link to="/api/pizza">Order Pizzas</Link>
         <Link to='/api/order'><button>Next</button></Link>
         <Link to="/">Home</Link>
-      </div>
+        </div>
         <Route path='/' exact>
           <Home />
         </Route>
@@ -58,7 +58,7 @@ function App() {
           {/* <Checkout /> */}
         </Route>
    
-
+    </main>
     </Router>
     </div>
   );
