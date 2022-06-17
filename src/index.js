@@ -13,12 +13,8 @@ const cart = (state = [], action) => {
             return action.payload;
     }
     return state;
-
-
-
-    
-
 }
+
 
 const defaultCustomerInfo = [{
     customer_name: "Donatello",
@@ -35,13 +31,15 @@ const customerInfo = (state = defaultCustomerInfo, action) => {
     return state;
 }
 
-const finalReducer = (state = {}, action) =>{
-    switch(action.type){
-        case 'ADD_FINAL_INFO':
-            return action.payload
-    }
-    return state;
-}
+
+// const sumTotal = (state = 0, action) =>{
+//     switch(action.type){
+//         case 'UP_THE_PRICE':
+//             return action.payload
+//     }
+//     return state;
+//     }
+
 
 
 
@@ -53,13 +51,21 @@ const pizzaList = (state = [], action) => {
     return state;
 }
 
+const checkoutRed= (state = [], action) =>{
+    switch(action.type){
+        case 'ADD_PIZZA_ORDER':
+            return action.payload;
+    }
+    return state;
+ }
+
 const pizzaStore = createStore(
     combineReducers({
-        pizzaList,
-
-        customerInfo, 
-        finalReducer,
-        customerInfo
+        pizzaList, 
+        customerInfo,
+        cart ,
+        checkoutRed
+        
 
 
     }),
