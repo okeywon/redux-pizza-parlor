@@ -58,11 +58,7 @@ const pizzaStore = createStore(
         pizzaList,
 
         customerInfo, 
-        finalReducer
-
-
-        
-
+        finalReducer,
         customerInfo
 
 
