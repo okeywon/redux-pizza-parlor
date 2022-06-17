@@ -6,6 +6,20 @@ import logger from 'redux-logger';
 import './index.css';
 import App from './components/App/App';
 
+
+const cart = (state = [], action) => {
+    switch(action.type){
+        case 'SET_CART':
+            return action.payload;
+    }
+    return state;
+
+
+
+    
+
+}
+
 const defaultCustomerInfo = [{
     customer_name: "Donatello",
     street_address: "20 W 34th St",
@@ -20,6 +34,7 @@ const customerInfo = (state = defaultCustomerInfo, action) => {
     }
     return state;
 }
+
 const finalReducer = (state = {}, action) =>{
     switch(action.type){
         case 'ADD_FINAL_INFO':
@@ -27,6 +42,8 @@ const finalReducer = (state = {}, action) =>{
     }
     return state;
 }
+
+
 
 const pizzaList = (state = [], action) => {
     switch(action.type){
@@ -39,8 +56,16 @@ const pizzaList = (state = [], action) => {
 const pizzaStore = createStore(
     combineReducers({
         pizzaList,
+
         customerInfo, 
         finalReducer
+
+
+        
+
+        customerInfo
+
+
     }),
     applyMiddleware(logger)
 );
